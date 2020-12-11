@@ -99,7 +99,7 @@ def train():
                 summary_writer.add_summary(summary, global_step_val)
 
             train_epoch_loss, train_epoch_hm_loss, train_epoch_wh_loss, train_epoch_reg_loss = np.mean(train_epoch_loss), np.mean(train_epoch_hm_loss), np.mean(train_epoch_wh_loss), np.mean(train_epoch_reg_loss)
-            print("Epoch: {}, global_step: {}, lr: {:.8f}, total_loss: {:.3f}, loss_hm: {:.3f}, loss_wh: {:.3f}, loss_reg: {:.3f}".format(epoch, global_step, lr, train_epoch_loss, train_epoch_hm_loss, train_epoch_wh_loss, train_epoch_reg_loss))
+            print("Epoch: {}, global_step: {}, lr: {:.8f}, total_loss: {:.3f}, loss_hm: {:.3f}, loss_wh: {:.3f}, loss_reg: {:.3f}".format(epoch, global_step_val, lr, train_epoch_loss, train_epoch_hm_loss, train_epoch_wh_loss, train_epoch_reg_loss))
             saver.save(sess, os.path.join(path_params['checkpoints_path'], 'model.ckpt'), global_step=epoch)
 
         sess.close()

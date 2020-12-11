@@ -23,8 +23,8 @@ model_params = {
 }
 
 solver_params = {
-    'batch_size': 8,
-    'epochs': 10000,
+    'batch_size': 16,
+    'epochs': 100,
     'lr_type': "exponential",
     'lr': 1e-3,             # exponential
     'decay_steps': 5000,    # exponential
