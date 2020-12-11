@@ -9,17 +9,17 @@
 import os
 
 path_params = {
-    'train_data_path': '',
-    'test_data_path': '',
-    'pretrain_weights': '',
+    'train_data_path': '/home/chenwei/HDD/Project/datasets/object_detection/VOCdevkit/voc_train.txt',
+    'pretrain_weights': '/home/chenwei/HDD/Project/CenterNet/weights/resnet34.npy',
+    'checkpoints_path': '/home/chenwei/HDD/Project/CenterNet/checkpoints',
+    'logs_path': '/home/chenwei/HDD/Project/CenterNet/logs'
 }
 
 model_params = {
-    'num_classes': 2,
+    'num_classes': 20,
     'input_height': 448,
     'input_width': 448,
     'downsample': 4,
-    'max_object': 150
 }
 
 solver_params = {
@@ -40,4 +40,4 @@ test_params = {
     'nms_threshold': 0.4
 }
 
-classes_map = {'person': 0, 'hat': 1}
+classes_name = ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
