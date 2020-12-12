@@ -19,11 +19,10 @@ def predict_image():
     input = tf.placeholder(shape=[1, None, None, 3], dtype=tf.float32)
 
     model = CenterNet(is_train=False)
-    with tf.variable_scope('CenterNet'):
-        hm, wh, reg = model.build_model(input)
-        det = model.decode(hm, wh, reg, 100)
+    hm, wh, reg = model.build_model(input)
+    det = model.decode(hm, wh, reg, 100)
 
-    checkpoints = "./checkpoints/model.ckpt-48000"
+    checkpoints = "./checkpoints/model.ckpt-99"
     saver = tf.train.Saver()
     with tf.Session() as sess:
         saver.restore(sess, checkpoints)

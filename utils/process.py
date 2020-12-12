@@ -110,15 +110,15 @@ def visualization(image, bboxes, scores, cls_inds, labels, thr=0.02):
     for i, box in enumerate(bboxes):
         if scores[i] < thr:
             continue
-        cls_indx = cls_inds[i]
+        cls_indx = int(cls_inds[i])
 
         thick = int((h + w) / 300)
-        cv2.rectangle(imgcv, (box[0], box[1]), (box[2], box[3]), colors[cls_indx], thick)
+        cv2.rectangle(imgcv, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), colors[cls_indx], thick)
         mess = '%s: %.3f' % (labels[cls_indx], scores[i])
         if box[1] < 20:
-            text_loc = (box[0] + 2, box[1] + 15)
+            text_loc = (int(box[0] + 2), int(box[1] + 15))
         else:
-            text_loc = (box[0], box[1] - 10)
+            text_loc = (int(box[0]), int(box[1] - 10))
         cv2.putText(imgcv, mess, text_loc, cv2.FONT_HERSHEY_SIMPLEX, 1e-3 * h, (255, 255, 255), thick // 3)
     cv2.imshow("test", imgcv)
     cv2.waitKey(0)
